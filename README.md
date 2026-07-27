@@ -1,37 +1,49 @@
 # TRANS – Höhe (H)
 
-## ID-System
-TRANS arbeitet mit der ID **H** (Höhe).  
+## 1. ID-System
+TRANS verwendet die ID **H** (Höhe).  
 Diese ID ist ein 1‑Zeichen‑Schlüssel und wird als TMP‑Speicherpfad genutzt:
 
 `TMP/H/<slot>.json`
 
-## Albertus Orbit Engine C
-TRANS nutzt die Orbit‑Engine C, die automatisch:
+Die ID bestimmt:
+- Höhen-Interpretation (RESPO_H)
+- Höhen-Bewertung (BEN_H)
+- Höhen-Steuerung (AI-H)
 
-- 3×3 Slots (1–9)
-- VAR-Slots (V1–V9)
-- Meta-Slot (X)
-- Orbit-Slot (∞)
+## 2. Albertus Orbit Engine C
+TRANS nutzt die Orbit‑Engine C, die automatisch folgende Ebenen durchläuft:
 
-durchläuft und ausweicht, wenn ein Slot besetzt ist.
+- 3×3 Slots: 1–9  
+- VAR-Slots: V1–V9  
+- Meta-Slot: X  
+- Orbit-Slot: ∞  
 
-## Slot-Finder
-TRANS verwendet:
+Die Engine weicht automatisch aus, wenn ein Slot besetzt ist.
+
+## 3. Slot-Finder
+TRANS nutzt:
 
 `ALBERTUS_FIND_SLOT(H, busy)`
 
-Die Engine wählt automatisch den nächsten freien Slot.
+Die Engine wählt den nächsten freien Slot.
 
-## RESPO_H – Höhen-Interpretation
-RESPO interpretiert TMP-Daten als Höhenmatrix.
+## 4. RESPO_H – Höhen-Interpretation
+RESPO_H interpretiert TMP-Daten als Höhenmatrix.
 
-## BEN_H – Höhen-Bewertung
-BEN bewertet die Höhenstruktur des aktiven TMP-Slots.
+## 5. BEN_H – Höhen-Bewertung
+BEN_H bewertet die Höhenstruktur des aktiven TMP-Slots.
 
-## AI-H – Höhen-Steueralgorithmus
-Der AI-Algorithmus steuert den Höhenorbit und entscheidet,
+## 6. AI-H – Höhen-Steueralgorithmus
+Der AI-H Algorithmus steuert den Höhenorbit und entscheidet,
 wie RESPO/BEN-Daten weiterverwendet werden.
 
-## Zweck
+## 7. Zweck
 TRANS bildet die Höhenachse des Systems.
+
+## 8. Module
+- [Albertus Engine](ca://s?q=Albertus_Engine)
+- [Slot-Finder](ca://s?q=Slot_Finder)
+- [RESPO_H](ca://s?q=RESPO_H)
+- [BEN_H](ca://s?q=BEN_H)
+- [AI-H](ca://s?q=AI_H)
