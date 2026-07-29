@@ -1,35 +1,32 @@
-<script>
-// TRANS → Höhe
-const ID = "H";
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TRANS · Höhe (H)</title>
+<style>
+body{background:#000;color:#0f0;font-family:monospace;padding:40px;}
+pre{background:#111;border-left:3px solid #6cf;padding:12px;}
+button{background:#111;color:#0f0;border:1px solid #333;padding:8px 16px;}
+</style>
+</head>
+<body>
 
-// RESPO_H interpretiert Höhe
-function RESPO_INTERPRET(tmpPath) {
-    return {
-        tmpPath,
-        mode: "RESPO-H",
-        meaning: "Höhen-Interpretation",
-        info: "RESPO interpretiert TMP-Daten als Höhenmatrix"
-    };
-}
+<h1>TRANS · Höhe (H)</h1>
 
-// BEN_H bewertet Höhe
-function BEN_EVAL(tmpPath) {
-    return {
-        tmpPath,
-        mode: "BEN-H",
-        score: Math.floor(Math.random() * 100),
-        meaning: "Höhen-Bewertung",
-        info: "BEN bewertet Höhenstruktur"
-    };
-}
+<button onclick="run()">LOAD SYS</button>
+<pre id="out">Bereit…</pre>
 
-// AI-H steuert Höhe
-function AI_STEUER_ALGO(orbit, id) {
-    return {
-        id,
-        orbit,
-        action: "AI-Höhen-Regelung aktiv",
-        info: "AI steuert Höhenorbit"
-    };
+<script type="module">
+import sysIn from "./sys.in.json" assert {type:"json"};
+import sysOut from "./sys.out.json" assert {type:"json"};
+import sysScale from "./sys.scale.json" assert {type:"json"};
+import sysHdf from "./sys.hdf.json" assert {type:"json"};
+
+function run(){
+    const data = {sysIn, sysOut, sysScale, sysHdf};
+    out.textContent = JSON.stringify(data, null, 2);
 }
 </script>
+
+</body>
+</html>
