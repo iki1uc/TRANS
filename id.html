@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <title>ID · TRANS</title>
@@ -14,23 +14,51 @@ pre{background:#111;border-left:3px solid #6cf;padding:12px;}
 
 <pre>
 ID.CORE     = TRANS
-ID.ROLE     = Höhe (H) · Vertikalachse
+ID.ROLE     = Höhe (H) · Vertikalrotation
+ID.TYPE     = GEO-Station 4/9
 ID.STATE    = stabil
 ID.READY    = 100%
-ID.SYS      = sys.in.json
-ID.NC       = active
-ID.ROM      = false
 ID.LOCATION = /TRANS/
 
-MODULES:
- - repo-id-3.csv
- - repo-id-6.csv
+GEO.SEGMENT = ◎ → 81 → ◆ → △
+FRAME.3     = ◎ → 81 → ◆
+FRAME.9     = Station 4
+FRAME.81    = Zeile 4 der 9×9-Matrix
+
+KOMPATIBEL:
+ - HY
+ - PE
+ - PER
+ - TMP-α
+ - TMP-β
+
+INKOMPATIBEL:
+ - WARB
+ - KANAL
+ - TMP-γ
+
+SYSTEM:
+ - sys.in.json
+ - sys.out.json
+ - sys.scale.json
+ - sys.hdf.json
+
+CSV:
+ - repo-id-3.csv   (3er-Stellung)
+ - repo-id-6.csv   (6er-Stellung)
+
+ANT:
+ - Vertikalachse
+ - HY-Rotation
+ - GEO-Schließung (◎)
 
 CAPABILITIES:
  - Höhenanalyse (H)
  - Vertikal-Index
- - Fusion mit Tiefe (T)
- - Vorbereitung für NC.vector.next
+ - Rotation zwischen HY/PE/PER
+ - Verbindung zu TMP-α/TMP-β
+ - Prüfung im Raum (◆)
+ - Funktion (△)
 </pre>
 
 </body>
