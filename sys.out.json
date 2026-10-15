@@ -1,6 +1,24 @@
 {
+  "id": "TRANS",
+  "core": "TRANS",
   "state": "stabil",
   "score": 16,
   "orbit": 0,
-  "continuum": false
+  "continuum": false,
+  "location": "/TRANS/",
+  "geo": {
+    "segment": "◎ → 81 → ◆ → △",
+    "schliessung": "◎",
+    "raum": "81",
+    "pruefung": "◆",
+    "funktion": "△"
+  },
+  "ant": {
+    "achse": "Vertikalachse",
+    "form": "◉ ↗ ↘ 3 9 ↘ ↗ ◎",
+    "rotation": "HY-Rotation",
+    "schliessung": "GEO-Schließung (◎)"
+  },
+  "capabilities": ["Höhenanalyse (H)", "Vertikal-Index", "Rotation HY/PE/PER", "Verbindung TMP-α/TMP-β", "Prüfung im Raum (◆)", "Funktion (△)"],
+  "status": "ok"
 }
