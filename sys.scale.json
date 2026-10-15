@@ -1,1 +1,57 @@
-
+{
+  "seed": "⟁",
+  "triangle": {
+    "0°": "NANO",
+    "120°": "BIO",
+    "240°": "ORDNUNG"
+  },
+  "segments": {
+    "HY": ["◉", "3", "9", "◎", "81", "3↺"],
+    "PE": ["◉", "9", "◎", "81", "◆", "△", "▣"],
+    "PER": ["3", "9", "81", "◆", "756", "△", "27", "▣", "3"],
+    "TRANS": ["◎", "81", "◆", "△"],
+    "WARB": ["81", "◆", "△", "27"],
+    "KANAL": ["756", "△", "27", "▣"],
+    "TMP-α": ["3", "◎", "27"],
+    "TMP-β": ["9", "81", "▣"],
+    "TMP-γ": ["◆", "756", "△"]
+  },
+  "nodes": {
+    "◉": { "name": "SEED", "value": 1, "file": "SEED ⟁" },
+    "3": { "name": "Ecken", "value": 3, "file": "0° 120° 240°" },
+    "9": { "name": "ROMs", "value": 9, "file": "d,e,i,n,o,r,s,u,w hdf.rom", "shoots": "81 Richtungen" },
+    "◎": { "name": "KOOP READY", "value": 1, "file": "bench.ram.ready + sli.ready = ein ready zu neu koop" },
+    "81": { "name": "Konstellation", "value": 81, "file": "NC.9x9.json = 81.tmp = 9×9 Matrix", "diag": "9 Felder = 6y + 3 LÜCKE" },
+    "◆": { "name": "KANAL Start", "value": 756, "calc": "81*? + 27*? = 756 - KANAL-Segmente" },
+    "△": { "name": "Dreieck", "value": 3, "file": "Pipeline Vorarbeit Dreieck - screenTransform(angle,radius,extraRotY,rotX)" },
+    "▣": { "name": "SYS HOME", "value": 1, "file": "ORT tmpOMG W=88 BIOS=0 Last - ram.sys" },
+    "27": { "name": "3³", "value": 27, "file": "3×9 = 27 - TMP-α End" },
+    "3↺": { "name": "Loop", "value": 3, "file": "Return zu 3 Ecken - RAUND Cycle" },
+    "756": { "name": "KANAL", "value": 756, "calc": "2268/3 = 756 - ORDNUNG 81→2268 Skalierung /3" }
+  },
+  "pipeline_vorarbeit": {
+    "rule": "Markieren, nicht bauen / Grenze setzen, nicht überschreiten / Schnittstelle legen, liegenlassen / Fertigmachen macht später das Team selbst",
+    "6x_tmp_ready": {
+      "P1_ATOM": { "ecke": "0° NANO", "was": "81 Datensatz", "gibt_ab": "81.tmp.ready", "macht_nicht": "Fahrzeug,bio,joystick,RAM,ORT", "tmp": "TMP-β 9→81→▣" },
+      "P2_NANO": { "ecke": "0° NANO", "was": "Fahrzeug tmpZ tmpX tmpW", "gibt_ab": "fahrzeug.tmp.ready", "macht_nicht": "81,bio,joystick,RAM,ORT", "tmp": "TMP-α 3→◎→27 + TMP-γ ◆→756→△" },
+      "P3_BIO": { "ecke": "120° BIO", "was": "bio b.i.o konform", "gibt_ab": "bio.pipe.ready", "macht_nicht": "81,Fahrzeug,joystick,RAM,ORT", "tmp": "HY ◉→3→9→◎→81→3↺" },
+      "P4_BIOLENSTEL": { "ecke": "120° BIO", "was": "Joystick tmpY tmpU tmpD AIR/AIV", "gibt_ab": "joystick.tmp.ready", "macht_nicht": "81,Fahrzeug,bio,RAM,ORT", "tmp": "KANAL 756→△→27→▣" },
+      "P5_ORDNUNG": { "ecke": "240° ORDNUNG", "was": "RAM 81→2268", "gibt_ab": "ram.map.ready", "macht_nicht": "81,Fahrzeug,bio,joystick,ORT", "tmp": "TRANS ◎→81→◆→△ + WARB 81→◆→△→27" },
+      "P6_SYS_HOME": { "ecke": "240° ORDNUNG", "was": "ORT tmpOMG W=88 BIOS=0 Last", "gibt_ab": "ort.sys.ready", "macht_nicht": "81,Fahrzeug,bio,joystick,RAM", "tmp": "PER 3→9→81→◆→756→△→27→▣→3 Endstück" }
+    },
+    "matrix": "9x9 Diagonale = 9 Felder, 6y = 1.5 Ø pro Person, 3 Felder leer = LÜCKE für neue Koop",
+    "screenTransform": "angle,radius,extraRotY,rotX - jeder Screen blickt nur auf sein Zentrum, dreht sich nur um eigene Achse = 6y"
+  },
+  "my_coin_mapping": {
+    "ram.rom": "ROM→RAM persistent caching - d.hdf.rom → bench.ram.ready",
+    "ram.cpu": "CPU→RAM",
+    "ram.gpu": "GPU→RAM",
+    "ram.x": "tmpX - Fahrzeug X",
+    "ram.y": "tmpY - Joystick Y",
+    "ram.z": "tmpZ - Fahrzeug Z",
+    "ram.sys": "RAM→SYS - bench.ram.ready → SYS HOME",
+    "cpu.ram": "CPU RAM - Rückweg"
+  },
+  "status": "VORARBEIT ONLY",
+  "version": "iki1uc TRANS sys.scale.json - Markieren nicht bauen"
+}
