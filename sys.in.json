@@ -1,7 +1,26 @@
 {
+  "id": "TRANS",
+  "core": "TRANS",
+  "role": "Höhe (H) · Vertikalrotation",
+  "type": "GEO-Station 4/9",
   "source": "TRANS",
+  "repo_id": "H",
+  "bedeutung": "Höhe",
+  "geo_segment": ["◎", "81", "◆", "△"],
+  "frame": {
+    "3": ["◎", "81", "◆"],
+    "9": "Station 4",
+    "81": "Zeile 4 der 9x9-Matrix"
+  },
+  "csv": {
+    "repo-id-3.csv": "3er-Stellung",
+    "repo-id-6.csv": "6er-Stellung"
+  },
+  "kompatibel": ["HY", "PE", "PER", "TMP-α", "TMP-β"],
+  "inkompatibel": ["WARB", "KANAL", "TMP-γ"],
   "timestamp": 0,
   "state": "pending",
   "nc": "active",
-  "rom": false
+  "rom": false,
+  "ready": "0%"
 }
