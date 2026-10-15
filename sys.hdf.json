@@ -1,6 +1,16 @@
 {
-  "size": "0GB",
-  "blocks": 2,
+  "id": "TRANS",
+  "core": "TRANS",
+  "hdf": "Höhen-Daten-Frame",
+  "size": "81",
+  "unit": "Datensätze",
+  "blocks": 4,
+  "block_map": ["sys.in.json", "sys.out.json", "sys.scale.json", "sys.hdf.json"],
   "status": "ok",
-  "checksum": "ready"
+  "checksum": "ready",
+  "ready": "100%",
+  "geo": "◎ → 81 → ◆ → △",
+  "matrix": "9x9 Zeile 4 = TRANS",
+  "csv": ["repo-id-3.csv", "repo-id-6.csv"],
+  "system": ["ID.html", "index.html", "GEO.md", "ANT.md", "README.md"]
 }
